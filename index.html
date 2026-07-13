@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Daffa Shidqi | Portfolio</title>
-    <!-- Font Awesome untuk Logo Ikon Media Sosial & Telepon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Modern Reset & Smooth Scrolling */
@@ -50,40 +49,80 @@
             color: #38bdf8; /* Soft Ocean Blue */
         }
 
-        /* Hero / Home Section */
-        .hero {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        /* Compact Hero & About Me Combined Section */
+        .hero-about-section {
+            padding-top: 140px;
+            padding-bottom: 60px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 80px;
         }
 
-        .hero h1 {
-            font-size: 48px;
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* Premium Profile Image Frame Matching Dark Theme */
+        .profile-frame {
+            flex: 1;
+            max-width: 320px;
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.2); /* Soft blue border tint */
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.1); /* Subtle cyber glow */
+            transition: transform 0.3s ease;
+        }
+
+        .profile-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1.5;
+        }
+
+        .about-text h1 {
+            font-size: 44px;
             font-weight: 800;
             color: #f8fafc;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
-        .hero h1 span {
+        .about-text h1 span {
             color: #38bdf8;
         }
 
-        .hero p {
-            font-size: 18px;
+        /* Updated Job Descriptive Role */
+        .about-text h3 {
+            font-size: 19px;
+            font-weight: 500;
             color: #94a3b8;
-            max-width: 600px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .about-text p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #38bdf8;
+            font-weight: 500;
         }
 
         /* Container Section */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px 100px 20px;
+            padding: 0 20px 100px 20px;
         }
 
         section {
@@ -110,49 +149,6 @@
             height: 3px;
             background-color: #38bdf8;
             border-radius: 2px;
-        }
-
-        /* About Me Layout */
-        .about-grid {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .profile-frame {
-            flex: 1;
-            max-width: 300px;
-            aspect-ratio: 1 / 1.1;
-            background-color: #1e293b;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 14px;
-            overflow: hidden;
-        }
-
-        .profile-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-text {
-            flex: 1.5;
-        }
-
-        .about-text p {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .highlight {
-            color: #38bdf8;
-            font-weight: 500;
         }
 
         /* Education & Working Experience (Timeline Layout) */
@@ -227,10 +223,10 @@
             font-weight: bold;
         }
 
-        /* Contacts Grid & Interactivity (Pop-up & Glow Effect) */
+        /* Contacts Grid Configuration */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
             margin-top: 10px;
         }
@@ -246,8 +242,9 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 12px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek membal natural */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            overflow: hidden;
         }
 
         .contact-card i {
@@ -257,26 +254,29 @@
         }
 
         .contact-card span {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            word-break: break-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
             transition: color 0.3s ease;
         }
 
-        /* Interaktivitas Saat Cursor Didekatkan (Hover State) */
+        /* Hover Pop-up States */
         .contact-card:hover {
-            transform: translateY(-8px); /* Efek Pop-up Naik Ke atas */
+            transform: translateY(-8px);
             border-color: #38bdf8;
             background-color: #1e293b;
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15); /* Efek Glow Lembut */
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
         }
 
         .contact-card:hover i {
-            color: #38bdf8; /* Logo berubah warna menjadi biru cyan */
+            color: #38bdf8;
         }
 
         .contact-card:hover span {
-            color: #f8fafc; /* Tulisan teks menjadi lebih terang */
+            color: #f8fafc;
         }
 
         /* Mobile Responsiveness */
@@ -288,8 +288,8 @@
             .profile-frame {
                 margin: 0 auto;
             }
-            .hero h1 {
-                font-size: 36px;
+            .about-text h1 {
+                font-size: 34px;
             }
             nav {
                 gap: 15px;
@@ -298,126 +298,110 @@
             nav a {
                 font-size: 13px;
             }
+            .contact-card span {
+                white-space: normal;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- SECTION: HOME / NAVIGATION MENU -->
-    <nav id="home">
+    <nav>
         <a href="#home">Home</a>
-        <a href="#about">About Me</a>
         <a href="#education">Education</a>
         <a href="#experience">Working Experience</a>
         <a href="#contacts">Contacts</a>
     </nav>
 
-    <!-- HERO BANNER (HOME VIEW) -->
-    <div class="hero">
-        <h1>Muhammad <span>Daffa Shidqi</span></h1>
-        <p>Quantitative Analyst & Supply Chain Management Specialist</p>
-    </div>
-
-    <div class="container">
+    <div class="container" id="home">
         
-        <!-- SECTION 1: ABOUT ME -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
+        <div class="hero-about-section">
             <div class="about-grid">
                 <div class="profile-frame">
-                    <span>Photo Placeholder</span>
+                    <img src="foto jas 2.jpg" alt="Muhammad Daffa Shidqi">
                 </div>
                 <div class="about-text">
+                    <h1>Muhammad <span>Daffa Shidqi</span></h1>
+                    <h3>Quantitative Analyst | Supply Chain & Geospatial Insights</h3>
                     <p>
-                        I am a detail-oriented Quantitative Analyst driven by an analytical curiosity and a strong sense of ownership over data integrity[cite: 1]. 
-                        I specialize in bridging the gap between complex physical datasets and corporate operational metrics, transforming raw data into clear, actionable business strategies[cite: 1].
+                        I am a detail-oriented Quantitative Analyst driven by an analytical curiosity and a strong sense of ownership over data integrity[cite: 5]. 
+                        I bridge the gap between complex physical datasets and corporate operational metrics, transforming raw data into clear, actionable business strategies that optimize operations and support growth[cite: 5, 8, 9].
                     </p>
                     <p>
-                        With a solid foundation combining a <span class="highlight">Geoscience background from Universitas Indonesia</span> and a <span class="highlight">Full-Stack Data Analyst certification from RevoU</span>, I bring a proven track record in risk analysis, supply chain containing, and high-precision structural infrastructure planning[cite: 1].
+                        Combining a strong <span class="highlight">Geoscience background from Universitas Indonesia</span> with a <span class="highlight">Full-Stack Data Analyst certification from RevoU</span>, I bring verified technical skills in extracting database anomalies, demand modeling, and risk optimization architectures[cite: 4].
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 2: EDUCATION -->
         <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
-                <!-- Education 1 -->
                 <div class="timeline-item">
                     <div class="item-title">Bachelor of Geology</div>
                     <div class="item-meta">
                         <span>Universitas Indonesia</span>
-                        <span class="date">GPA: 3.32 / 4.00</span>[cite: 1]
+                        <span class="date">GPA: 3.32 / 4.00 [cite: 12]</span>
                     </div>
                 </div>
-                <!-- Education 2 -->
                 <div class="timeline-item">
                     <div class="item-title">Certified Full-Stack Data Analyst</div>
                     <div class="item-meta">
-                        <span>RevoU Bootcamp (Project-Based)</span>
-                        <span class="date">Feb 2026</span>[cite: 1]
+                        <span>RevoU Bootcamp (Project-Based) [cite: 14]</span>
+                        <span class="date">Feb 2026 [cite: 43]</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: WORKING EXPERIENCE -->
         <section id="experience">
             <h2 class="section-title">Working Experience</h2>
             <div class="timeline">
                 
-                <!-- Experience 1: Pertamina -->
                 <div class="timeline-item">
                     <div class="item-title">Material Management (Supply Chain Management)</div>
                     <div class="item-meta">
                         <span>Pertamina Drilling Services Indonesia</span>
-                        <span class="date">Oct 2025 - Present</span>[cite: 1]
+                        <span class="date">Oct 2025 - Present [cite: 17, 18]</span>
                     </div>
                     <ul class="job-details">
-                        <li>Tracked stock levels and forecasted demand using SAP and Excel, successfully reducing overstocking risks by 15% and balancing warehouse capacity[cite: 1].</li>
-                        <li>Streamlined material lifecycles and disposal tracking, cutting material carrying costs by 10% and keeping drilling site operations running smoothly[cite: 1].</li>
-                        <li>Collaborated with field engineers and procurement teams to verify physical inventory levels, ensuring high data accuracy between SAP records and actual stock[cite: 1].</li>
+                        <li>Tracked stock levels and forecasted demand using SAP and Excel, cutting overstock risks by 15% and balancing warehouse capacity[cite: 20].</li>
+                        <li>Streamlined material lifecycles and disposal tracking, reducing material carrying costs by 10% and keeping drilling site operations running smoothly[cite: 6, 21].</li>
+                        <li>Collaborated with field engineers and procurement teams to verify inventory levels, ensuring high data accuracy between SAP records and actual stock[cite: 22].</li>
                     </ul>
                 </div>
 
-                <!-- Experience 2: UI/KOMDIGI -->
                 <div class="timeline-item">
                     <div class="item-title">Geoscience Expert Assistant</div>
                     <div class="item-meta">
                         <span>Lembaga Sains Terapan FMIPA Universitas Indonesia</span>
-                        <span class="date">Jul 2024 - Sep 2025</span>[cite: 1]
+                        <span class="date">Jul 2024 - Sep 2025 [cite: 19, 23]</span>
                     </div>
                     <ul class="job-details">
-                        <li>Led research on active faults and mass movements to analyze the root causes of fiber-optic cable disruptions caused by structural landslides[cite: 1].</li>
-                        <li>Created high-precision risk maps (including geological formations, peak ground acceleration, and seamounts) using ArcGIS and SNAP to isolate high-risk zones[cite: 1].</li>
-                        <li>Delivered spatial data insights and critical routing recommendations to the Ministry of Communication and Digital (KOMDIGI) to protect the Palapa Ring network from future hazard damages[cite: 1].</li>
+                        <li>Led research on active faults and mass movements to analyze the root causes of fiber-optic cable disruptions caused by structural landslides[cite: 7, 25].</li>
+                        <li>Created high-precision risk maps (including geological formations, peak ground acceleration, and seamounts) using ArcGIS and SNAP to isolate high-risk zones[cite: 26].</li>
+                        <li>Delivered spatial data insights and critical routing recommendations to the Ministry of Communication and Digital (KOMDIGI) to protect the Palapa Ring network from future hazard damages[cite: 7, 27].</li>
                     </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 4: CONTACTS WITH HOVER POP-UP & GLOW EFFECT -->
         <section id="contacts">
             <h2 class="section-title">Contacts</h2>
             <div class="contact-grid">
-                <!-- Telephone -->
                 <a href="tel:+6281281330303" class="contact-card">
                     <i class="fa-solid fa-phone"></i>
-                    <span>+62 812-8133-0303</span>[cite: 1]
+                    <span>+62 812-8133-0303</span>
                 </a>
-                <!-- Gmail -->
                 <a href="mailto:daffashidqi20@gmail.com" class="contact-card">
                     <i class="fa-solid fa-envelope"></i>
-                    <span>daffashidqi20@gmail.com</span>[cite: 1]
+                    <span>daffashidqi20@gmail.com</span>
                 </a>
-                <!-- LinkedIn -->
                 <a href="https://linkedin.com/in/daffa-shidqi" target="_blank" class="contact-card">
                     <i class="fa-brands fa-linkedin-in"></i>
-                    <span>linkedin.com/in/daffa-shidqi</span>[cite: 1]
+                    <span>linkedin.com/in/daffa-shidqi</span>
                 </a>
-                <!-- GitHub -->
                 <a href="https://github.com/daffadef" target="_blank" class="contact-card">
                     <i class="fa-brands fa-github"></i>
                     <span>github.com/daffadef</span>
