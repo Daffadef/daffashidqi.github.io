@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Daffa Shidqi | Portfolio</title>
+    <style>
+        /* Desain Latar Belakang & Font bergaya Dark Mode */
+        body {
+            background-color: #1e1f22;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Menu Navigasi Atas */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            border-bottom: 2px solid #ff79c6; /* Garis pink tipis seperti di gambar */
+        }
+        nav a {
+            color: #00f0ff; /* Warna cyan neon */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ff79c6;
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Judul Besar Berongga (Outline Typography) */
+        .outline-title {
+            font-size: 70px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(0, 240, 255, 0.4);
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: -40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00f0ff;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
+        }
+
+        /* Layout About Me */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .profile-img-container {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        /* Kotak Foto */
+        .profile-img-container img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .about-text {
+            flex: 1.2;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cdcdcd;
+        }
+
+        .about-text h2 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .about-text h2 span {
+            color: #00f0ff;
+        }
+
+        .highlight {
+            color: #00f0ff;
+            font-weight: bold;
+        }
+
+        /* Bagian Skills */
+        .skills-section {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .outline-title {
+                font-size: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Bar Menu -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="https://linkedin.com/in/daffa-shidqi" target="_blank">LinkedIn</a>
+    </nav>
+
+    <div class="container">
+        <!-- Section: About Me -->
+        <div class="outline-title">ABOUT ME</div>
+        <div class="section-title">ABOUT ME</div>
+
+        <div class="about-section">
+            <div class="profile-img-container">
+                <!-- Gunakan placeholder dulu untuk fotonya -->
+                <img src="https://via.placeholder.com/400x450/282a36/ffffff?text=Your+Photo+Here" alt="Muhammad Daffa Shidqi">
+            </div>
+            
+            <div class="about-text">
+                <h2>Call me <span>Daffa</span></h2>
+                <p>
+                    A data professional bridging the gap between complex analytical models and operational reality[cite: 1]. 
+                    Combining a strong <span class="highlight">Geoscience background from Universitas Indonesia</span> with intensive 
+                    <span class="highlight">Full-Stack Data Analytics certification from RevoU</span>, I specialize in transforming raw datasets 
+                    into actionable corporate strategy[cite: 1].
+                </p>
+                <p>
+                    Proven success in risk mitigation and cost containment[cite: 1]. At <span class="highlight">Pertamina Drilling Services Indonesia</span>, 
+                    I leveraged analytics to scale back overstocking risks by <span class="highlight">15%</span> and cut material carrying costs 
+                    by <span class="highlight">10%</span>[cite: 1]. Furthermore, I've delivered high-stakes spatial data consulting to the 
+                    <span class="highlight">Ministry of Communication and Digital (KOMDIGI)</span> to safeguard critical network infrastructure[cite: 1].
+                </p>
+            </div>
+        </div>
+
+        <!-- Section: Skills -->
+        <div class="skills-section">
+            <div class="outline-title">SKILLS</div>
+            <div class="section-title">CORE DATA & BI TOOLS</div>
+            <!-- Bagian tempat menaruh kisi-kisi atau tabel keahlian Anda selanjutnya -->
+        </div>
+    </div>
+
+</body>
+</html>
