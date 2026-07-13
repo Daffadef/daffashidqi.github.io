@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Daffa Shidqi | Portfolio</title>
+    <!-- Font Awesome untuk Logo Ikon Media Sosial & Telepon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Modern Reset & Smooth Scrolling */
         * {
@@ -13,7 +15,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Background Gelap Premium Minimalis */
+        /* Premium Minimalist Dark Mode Background */
         body {
             background-color: #0f172a; /* Deep Slate Blue-Dark */
             color: #e2e8f0;
@@ -21,7 +23,7 @@
             line-height: 1.6;
         }
 
-        /* Navigasi Minimalis Tetap di Atas */
+        /* Minimalist Sticky Top Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -89,7 +91,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Judul Section yang Natural */
+        /* Natural Section Titles */
         .section-title {
             font-size: 26px;
             font-weight: 700;
@@ -110,7 +112,7 @@
             border-radius: 2px;
         }
 
-        /* Layout About Me */
+        /* About Me Layout */
         .about-grid {
             display: flex;
             align-items: center;
@@ -153,7 +155,7 @@
             font-weight: 500;
         }
 
-        /* Layout Education & Working Experience (Timeline) */
+        /* Education & Working Experience (Timeline Layout) */
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -225,35 +227,59 @@
             font-weight: bold;
         }
 
-        /* Layout Contacts */
+        /* Contacts Grid & Interactivity (Pop-up & Glow Effect) */
         .contact-grid {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            flex-wrap: wrap;
             margin-top: 10px;
         }
 
         .contact-card {
             background-color: #1e293b;
-            padding: 20px 30px;
-            border-radius: 8px;
+            padding: 22px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-decoration: none;
             color: #cbd5e1;
-            font-weight: 500;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             gap: 12px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek membal natural */
+            position: relative;
         }
 
+        .contact-card i {
+            font-size: 24px;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card span {
+            font-size: 14px;
+            font-weight: 500;
+            word-break: break-all;
+            transition: color 0.3s ease;
+        }
+
+        /* Interaktivitas Saat Cursor Didekatkan (Hover State) */
         .contact-card:hover {
+            transform: translateY(-8px); /* Efek Pop-up Naik Ke atas */
             border-color: #38bdf8;
-            color: #38bdf8;
-            background-color: rgba(56, 189, 248, 0.02);
+            background-color: #1e293b;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15); /* Efek Glow Lembut */
         }
 
-        /* Responsif Mobile */
+        .contact-card:hover i {
+            color: #38bdf8; /* Logo berubah warna menjadi biru cyan */
+        }
+
+        .contact-card:hover span {
+            color: #f8fafc; /* Tulisan teks menjadi lebih terang */
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .about-grid {
                 flex-direction: column;
@@ -277,7 +303,7 @@
 </head>
 <body>
 
-    <!-- SECTION: HOME / MENU NAVIGASI -->
+    <!-- SECTION: HOME / NAVIGATION MENU -->
     <nav id="home">
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
@@ -286,7 +312,7 @@
         <a href="#contacts">Contacts</a>
     </nav>
 
-    <!-- HERO BANNER (HOME TAMPILAN AWAL) -->
+    <!-- HERO BANNER (HOME VIEW) -->
     <div class="hero">
         <h1>Muhammad <span>Daffa Shidqi</span></h1>
         <p>Quantitative Analyst & Supply Chain Management Specialist</p>
@@ -299,15 +325,15 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-grid">
                 <div class="profile-frame">
-                    <span>Placeholder Foto</span>
+                    <span>Photo Placeholder</span>
                 </div>
                 <div class="about-text">
                     <p>
-                        Saya adalah seorang analis data kuantitatif yang berfokus pada integrasi data fisik yang kompleks dengan metrik operasional perusahaan. 
-                        Saya menggabungkan latar belakang pemikiran analitis geologi dengan kapabilitas pengelolaan big data modern guna menstrukturkan *raw data* menjadi strategi bisnis bernilai tinggi[cite: 1].
+                        I am a detail-oriented Quantitative Analyst driven by an analytical curiosity and a strong sense of ownership over data integrity[cite: 1]. 
+                        I specialize in bridging the gap between complex physical datasets and corporate operational metrics, transforming raw data into clear, actionable business strategies[cite: 1].
                     </p>
                     <p>
-                        Memiliki rekam jejak terbukti dalam manajemen risiko dan containment biaya logistik di industri energi, serta penyusunan peta risiko bernilai presisi tinggi untuk perlindungan infrastruktur vital nasional[cite: 1].
+                        With a solid foundation combining a <span class="highlight">Geoscience background from Universitas Indonesia</span> and a <span class="highlight">Full-Stack Data Analyst certification from RevoU</span>, I bring a proven track record in risk analysis, supply chain containing, and high-precision structural infrastructure planning[cite: 1].
                     </p>
                 </div>
             </div>
@@ -317,7 +343,7 @@
         <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
-                <!-- Pendidikan 1 -->
+                <!-- Education 1 -->
                 <div class="timeline-item">
                     <div class="item-title">Bachelor of Geology</div>
                     <div class="item-meta">
@@ -325,7 +351,7 @@
                         <span class="date">GPA: 3.32 / 4.00</span>[cite: 1]
                     </div>
                 </div>
-                <!-- Pendidikan 2 -->
+                <!-- Education 2 -->
                 <div class="timeline-item">
                     <div class="item-title">Certified Full-Stack Data Analyst</div>
                     <div class="item-meta">
@@ -341,7 +367,7 @@
             <h2 class="section-title">Working Experience</h2>
             <div class="timeline">
                 
-                <!-- Pengalaman 1: Pertamina -->
+                <!-- Experience 1: Pertamina -->
                 <div class="timeline-item">
                     <div class="item-title">Material Management (Supply Chain Management)</div>
                     <div class="item-meta">
@@ -349,13 +375,13 @@
                         <span class="date">Oct 2025 - Present</span>[cite: 1]
                     </div>
                     <ul class="job-details">
-                        <li>Melakukan pelacakan tingkat stok dan memproyeksikan kebutuhan material menggunakan SAP serta Excel, berhasil memangkas risiko overstock sebesar 15%[cite: 1].</li>
-                        <li>Mengoptimalkan siklus hidup material dan disposal tracking, memangkas biaya carrying material sebesar 10%[cite: 1].</li>
-                        <li>Memverifikasi level inventaris fisik bersama tim field engineer guna menjamin akurasi data rekaman sistem SAP[cite: 1].</li>
+                        <li>Tracked stock levels and forecasted demand using SAP and Excel, successfully reducing overstocking risks by 15% and balancing warehouse capacity[cite: 1].</li>
+                        <li>Streamlined material lifecycles and disposal tracking, cutting material carrying costs by 10% and keeping drilling site operations running smoothly[cite: 1].</li>
+                        <li>Collaborated with field engineers and procurement teams to verify physical inventory levels, ensuring high data accuracy between SAP records and actual stock[cite: 1].</li>
                     </ul>
                 </div>
 
-                <!-- Pengalaman 2: UI/KOMDIGI -->
+                <!-- Experience 2: UI/KOMDIGI -->
                 <div class="timeline-item">
                     <div class="item-title">Geoscience Expert Assistant</div>
                     <div class="item-meta">
@@ -363,27 +389,38 @@
                         <span class="date">Jul 2024 - Sep 2025</span>[cite: 1]
                     </div>
                     <ul class="job-details">
-                        <li>Menganalisis akar penyebab disrupsi pada kabel serat optik Palapa Ring akibat bencana tanah longsor struktural[cite: 1].</li>
-                        <li>Mengembangkan peta risiko bernilai presisi tinggi menggunakan ArcGIS dan SNAP untuk identifikasi zona rawan bencana[cite: 1].</li>
-                        <li>Menyajikan rekomendasi re-routing data spasial kepada Kementerian Komunikasi dan Digital (KOMDIGI) guna memitigasi kerusakan infrastruktur di masa depan[cite: 1].</li>
+                        <li>Led research on active faults and mass movements to analyze the root causes of fiber-optic cable disruptions caused by structural landslides[cite: 1].</li>
+                        <li>Created high-precision risk maps (including geological formations, peak ground acceleration, and seamounts) using ArcGIS and SNAP to isolate high-risk zones[cite: 1].</li>
+                        <li>Delivered spatial data insights and critical routing recommendations to the Ministry of Communication and Digital (KOMDIGI) to protect the Palapa Ring network from future hazard damages[cite: 1].</li>
                     </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECTION 4: CONTACTS -->
+        <!-- SECTION 4: CONTACTS WITH HOVER POP-UP & GLOW EFFECT -->
         <section id="contacts">
             <h2 class="section-title">Contacts</h2>
             <div class="contact-grid">
+                <!-- Telephone -->
+                <a href="tel:+6281281330303" class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+62 812-8133-0303</span>[cite: 1]
+                </a>
+                <!-- Gmail -->
                 <a href="mailto:daffashidqi20@gmail.com" class="contact-card">
-                    ✉️ daffashidqi20@gmail.com[cite: 1]
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>daffashidqi20@gmail.com</span>[cite: 1]
                 </a>
+                <!-- LinkedIn -->
                 <a href="https://linkedin.com/in/daffa-shidqi" target="_blank" class="contact-card">
-                    💼 linkedin.com/in/daffa-shidqi[cite: 1]
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <span>linkedin.com/in/daffa-shidqi</span>[cite: 1]
                 </a>
-                <a href="https://github.com/daffashidqi" target="_blank" class="contact-card">
-                    💻 github.com/daffashidqi
+                <!-- GitHub -->
+                <a href="https://github.com/daffadef" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <span>github.com/daffadef</span>
                 </a>
             </div>
         </section>
