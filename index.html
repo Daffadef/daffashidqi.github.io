@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Daffa Shidqi | Portfolio</title>
-    <!-- Font Awesome for Real Social & Contact Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Modern Reset & Smooth Scrolling */
@@ -63,25 +62,40 @@
             gap: 60px;
         }
 
-        /* Premium Profile Image Frame Matching Dark Theme */
+        /* Advanced Image Container that Dynamically Blends Your Bright Background with the Theme */
         .profile-frame {
             flex: 1;
             max-width: 320px;
+            position: relative;
             border-radius: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.2); /* Soft blue border tint */
+            border: 1px solid rgba(56, 189, 248, 0.25);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.1); /* Subtle cyber glow */
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Digital Dark Vignette overlay onto the image background */
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(15, 23, 42, 0) 30%, rgba(15, 23, 42, 0.75) 100%);
+            pointer-events: none;
         }
 
         .profile-frame:hover {
             transform: scale(1.02);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.25);
         }
 
         .profile-frame img {
             width: 100%;
             display: block;
             object-fit: cover;
+            filter: brightness(0.88) contrast(1.05) saturate(0.95); /* Color correction to match dark aesthetics */
         }
 
         .about-text {
@@ -307,7 +321,6 @@
 </head>
 <body>
 
-    <!-- SECTION: NAVIGATION MENU -->
     <nav>
         <a href="#home">Home</a>
         <a href="#education">Education</a>
@@ -317,12 +330,10 @@
 
     <div class="container" id="home">
         
-        <!-- FIRST PAGE COMBINED: HERO & ABOUT ME WITH LOGO MATCHING SYSTEM -->
         <div class="hero-about-section">
             <div class="about-grid">
                 <div class="profile-frame">
-                    <!-- Point this to your uploaded file name in root directory -->
-                    <img src="foto jas 2.jpg" alt="Muhammad Daffa Shidqi">
+                    <img src="foto jas resize 500kb.jpg" alt="Muhammad Daffa Shidqi">
                 </div>
                 <div class="about-text">
                     <h1>Muhammad <span>Daffa Shidqi</span></h1>
@@ -338,7 +349,6 @@
             </div>
         </div>
 
-        <!-- SECTION 2: EDUCATION -->
         <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
@@ -359,12 +369,10 @@
             </div>
         </section>
 
-        <!-- SECTION 3: WORKING EXPERIENCE -->
         <section id="experience">
             <h2 class="section-title">Working Experience</h2>
             <div class="timeline">
                 
-                <!-- Experience 1: Pertamina Drilling -->
                 <div class="timeline-item">
                     <div class="item-title">Material Management (Supply Chain Management)</div>
                     <div class="item-meta">
@@ -374,55 +382,5 @@
                     <ul class="job-details">
                         <li>Tracked stock levels and forecasted demand using SAP and Excel, cutting overstock risks by 15% and balancing warehouse capacity.</li>
                         <li>Streamlined material lifecycles and disposal tracking, reducing material carrying costs by 10% and keeping drilling site operations running smoothly.</li>
-                        <li>Collaborated with field engineers and procurement teams to verify inventory levels, ensuring high data accuracy between SAP records and actual stock.</li>
-                    </ul>
-                </div>
-
-                <!-- Experience 2: UI Geoscience -->
-                <div class="timeline-item">
-                    <div class="item-title">Geoscience Expert Assistant</div>
-                    <div class="item-meta">
-                        <span>Lembaga Sains Terapan FMIPA Universitas Indonesia</span>
-                        <span class="date">Jul 2024 - Sep 2025</span>
-                    </div>
-                    <ul class="job-details">
-                        <li>Led research on active faults and mass movements to analyze the root causes of fiber-optic cable disruptions caused by structural landslides.</li>
-                        <li>Created high-precision risk maps (including geological formations, peak ground acceleration, and seamounts) using ArcGIS and SNAP to isolate high-risk zones.</li>
-                        <li>Delivered spatial data insights and critical routing recommendations to the Ministry of Communication and Digital (KOMDIGI) to protect the Palapa Ring network from future hazard damages.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 4: CONTACTS -->
-        <section id="contacts">
-            <h2 class="section-title">Contacts</h2>
-            <div class="contact-grid">
-                <!-- Telephone -->
-                <a href="tel:+6281281330303" class="contact-card">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+62 812-8133-0303</span>
-                </a>
-                <!-- Gmail -->
-                <a href="mailto:daffashidqi20@gmail.com" class="contact-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>daffashidqi20@gmail.com</span>
-                </a>
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/daffa-shidqi" target="_blank" class="contact-card">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <span>linkedin.com/in/daffa-shidqi</span>
-                </a>
-                <!-- GitHub -->
-                <a href="https://github.com/daffadef" target="_blank" class="contact-card">
-                    <i class="fa-brands fa-github"></i>
-                    <span>github.com/daffadef</span>
-                </a>
-            </div>
-        </section>
-
-    </div>
-
-</body>
+                        <li>Collaborated with field engineers and procurement teams to verify inventory
 </html>
