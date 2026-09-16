@@ -1,386 +1,1194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Daffa Shidqi | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        /* Modern Reset & Smooth Scrolling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Daffa Shidqi — Data Analyst</title>
+  <meta name="description" content="Portfolio of Muhammad Daffa Shidqi, a data analyst with a geology background specializing in risk analysis and operational optimization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Premium Minimalist Dark Mode Background */
-        body {
-            background-color: #0f172a; /* Deep Slate Blue-Dark */
-            color: #e2e8f0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-        }
+    :root {
+      --bg: #060810;
+      --bg2: #0B0F1C;
+      --bg3: #101526;
+      --surface: #131A2C;
+      --border: rgba(160,180,220,0.08);
+      --border2: rgba(160,180,220,0.16);
+      --accent: #7C9CE8;
+      --accent-bright: #6FA0FF;
+      --accent2: #B7C6EA;
+      --accent-deep: #3A4E85;
+      --text: #F3F5FA;
+      --muted: #8891A8;
+      --muted2: #4E5670;
+    }
 
-        /* Minimalist Sticky Top Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            padding: 20px;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    html { scroll-behavior: smooth; }
 
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        nav a:hover {
-            color: #38bdf8; /* Soft Ocean Blue */
-        }
+    /* NOISE TEXTURE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
 
-        /* Compact Hero & About Me Combined Section */
-        .hero-about-section {
-            padding-top: 140px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.7);
+    }
 
-        .about-grid {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
 
-        /* Advanced Image Container that Dynamically Blends Your Bright Background with the Theme */
-        .profile-frame {
-            flex: 1;
-            max-width: 320px;
-            position: relative;
-            border-radius: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
 
-        /* Digital Dark Vignette overlay onto the image background */
-        .profile-frame::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(15, 23, 42, 0) 30%, rgba(15, 23, 42, 0.75) 100%);
-            pointer-events: none;
-        }
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
 
-        .profile-frame:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.25);
-        }
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
 
-        .profile-frame img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            filter: brightness(0.88) contrast(1.05) saturate(0.95); /* Color correction to match dark aesthetics */
-        }
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .about-text {
-            flex: 1.5;
-        }
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(124,156,232,0.07) 0 1px, transparent 1px 64px),
+        repeating-linear-gradient(-45deg, rgba(124,156,232,0.07) 0 1px, transparent 1px 64px);
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+    }
 
-        .about-text h1 {
-            font-size: 44px;
-            font-weight: 800;
-            color: #f8fafc;
-            margin-bottom: 5px;
-        }
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,156,232,0.06) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
 
-        .about-text h1 span {
-            color: #38bdf8;
-        }
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
 
-        /* Updated Job Descriptive Role */
-        .about-text h3 {
-            font-size: 19px;
-            font-weight: 500;
-            color: #94a3b8;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
-        }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(44px, 6.6vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.35s;
+    }
 
-        .about-text p {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
+    .hero-name .line1 {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.5em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
 
-        .highlight {
-            color: #38bdf8;
-            font-weight: 500;
-        }
+    .hero-name .line2 {
+      display: block;
+      color: var(--accent-bright);
+      font-weight: 800;
+      font-style: italic;
+      font-size: 1.08em;
+      letter-spacing: -1px;
+      text-shadow: 0 0 36px rgba(111,160,255,0.35);
+    }
 
-        /* Container Section */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px 100px 20px;
-        }
+    .hero-role {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(20px, 3vw, 32px);
+      color: var(--muted);
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+    .hero-role .highlight { color: var(--accent2); }
 
-        section {
-            padding: 80px 0 40px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    .hero-desc {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.65s;
+    }
 
-        /* Natural Section Titles */
-        .section-title {
-            font-size: 26px;
-            font-weight: 700;
-            color: #f8fafc;
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.8s;
+    }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 40px;
-            height: 3px;
-            background-color: #38bdf8;
-            border-radius: 2px;
-        }
+    .badge {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      background: var(--surface);
+    }
+    .badge.geo { border-color: var(--border2); color: var(--accent2); background: rgba(124,156,232,0.06); }
+    .badge.data { border-color: rgba(124,156,232,0.35); color: var(--accent); background: rgba(124,156,232,0.08); }
+    .badge.ml { border-color: rgba(124,156,232,0.5); color: var(--accent); background: rgba(124,156,232,0.12); }
 
-        /* Education & Working Experience (Timeline Layout) */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.95s;
+    }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 2px;
-            height: 100%;
-            background-color: #1e293b;
-        }
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+      font-weight: 500;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 45px;
-        }
+    .btn-secondary {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border2);
+      padding: 14px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(124,156,232,0.05); }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -36px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #38bdf8;
-            border: 3px solid #0f172a;
-        }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 1.1s;
+    }
 
-        .item-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #f8fafc;
-        }
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted2);
+      position: relative;
+      overflow: hidden;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background: var(--accent);
+      animation: slide 2s ease-in-out infinite;
+    }
 
-        .item-meta {
-            font-size: 14px;
-            color: #94a3b8;
-            margin: 4px 0 15px 0;
-            display: flex;
-            gap: 15px;
-        }
+    .scroll-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted2);
+      text-transform: uppercase;
+    }
 
-        .item-meta .date {
-            color: #38bdf8;
-        }
+    /* SECTION BASE */
+    section { position: relative; z-index: 1; }
 
-        .job-details {
-            list-style: none;
-        }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px; }
 
-        .job-details li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: #cbd5e1;
-            font-size: 15px;
-            text-align: justify;
-        }
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
 
-        .job-details li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #38bdf8;
-            font-weight: bold;
-        }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 60px;
+    }
 
-        /* Contacts Grid Configuration */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-top: 10px;
-        }
+    /* ABOUT */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-text p { color: var(--muted); font-size: 17px; line-height: 1.8; margin-bottom: 20px; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
 
-        .contact-card {
-            background-color: #1e293b;
-            padding: 22px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-decoration: none;
-            color: #cbd5e1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .stat-box { background: var(--surface); padding: 28px 24px; border: 1px solid var(--border); }
+    .stat-box:first-child { border-radius: 8px 0 0 0; }
+    .stat-box:nth-child(2) { border-radius: 0 8px 0 0; }
+    .stat-box:nth-child(3) { border-radius: 0 0 0 8px; }
+    .stat-box:last-child { border-radius: 0 0 8px 0; }
 
-        .contact-card i {
-            font-size: 24px;
-            color: #94a3b8;
-            transition: color 0.3s ease;
-        }
+    .stat-num { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 36px; letter-spacing: -2px; color: var(--accent); margin-bottom: 4px; }
+    .stat-label { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
 
-        .contact-card span {
-            font-size: 13px;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-            transition: color 0.3s ease;
-        }
+    /* EXPERIENCE */
+    #experience { background: var(--bg); }
+    .exp-list { display: flex; flex-direction: column; gap: 2px; }
+    .exp-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .exp-item:hover { border-color: var(--border2); background: var(--bg3); }
 
-        /* Hover Pop-up States */
-        .contact-card:hover {
-            transform: translateY(-8px);
-            border-color: #38bdf8;
-            background-color: #1e293b;
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
-        }
+    .exp-meta { padding-top: 4px; }
+    .exp-period { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 6px; }
+    .exp-company { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 14px; color: var(--muted); line-height: 1.4; }
+    .exp-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .exp-desc { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .exp-tag {
+      font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.06em;
+      padding: 4px 10px; border-radius: 100px; background: var(--surface); color: var(--muted); border: 1px solid var(--border);
+    }
 
-        .contact-card:hover i {
-            color: #38bdf8;
-        }
+    /* PROJECTS */
+    #projects { background: var(--bg2); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.25s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-card:hover { border-color: rgba(124,156,232,0.3); transform: translateY(-4px); }
+    .project-num { font-family: 'Jost', sans-serif; font-size: 11px; color: var(--muted2); letter-spacing: 0.1em; }
+    .project-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; line-height: 1.2; }
+    .project-desc { color: var(--muted); font-size: 14px; line-height: 1.65; flex: 1; }
+    .project-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tool-tag { font-family: 'Jost', sans-serif; font-size: 10px; padding: 3px 8px; border-radius: 3px; background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+    .project-link { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-top: 4px; }
 
-        .contact-card:hover span {
-            color: #f8fafc;
-        }
+    /* SKILLS */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .skill-group { background: var(--bg2); border: 1px solid var(--border); padding: 28px 28px 32px; }
+    .skill-group:first-child { border-radius: 8px 0 0 0; }
+    .skill-group:nth-child(3) { border-radius: 0 8px 0 0; }
+    .skill-group:nth-child(4) { border-radius: 0 0 0 8px; }
+    .skill-group:last-child { border-radius: 0 0 8px 0; }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .about-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-            .profile-frame {
-                margin: 0 auto;
-            }
-            .about-text h1 {
-                font-size: 34px;
-            }
-            nav {
-                gap: 15px;
-                padding: 15px 10px;
-            }
-            nav a {
-                font-size: 13px;
-            }
-            .contact-card span {
-                white-space: normal;
-            }
-        }
-    </style>
+    .skill-group-label {
+      font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-pill {
+      font-family: 'Jost', sans-serif; font-size: 13px; padding: 5px 12px; border-radius: 4px;
+      background: var(--surface); color: var(--text); border: 1px solid var(--border); transition: border-color 0.2s;
+    }
+    .skill-pill:hover { border-color: var(--accent2); }
+
+    /* EDUCATION & CERTS */
+    #education { background: var(--bg2); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .edu-col-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; letter-spacing: -0.5px; margin-bottom: 24px; color: var(--muted); }
+    .edu-item, .cert-item { border-left: 2px solid var(--border2); padding: 0 0 28px 24px; position: relative; }
+    .edu-item::before, .cert-item::before {
+      content: ''; position: absolute; left: -5px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .edu-year { font-family: 'Jost', sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 4px; }
+    .edu-school { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+    .edu-degree { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .edu-score {
+      display: inline-block; margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 11px; padding: 3px 10px;
+      border-radius: 100px; background: rgba(124,156,232,0.1); color: var(--accent); border: 1px solid rgba(124,156,232,0.3);
+    }
+
+    /* CONTACT */
+    #contact { background: var(--bg); border-top: 1px solid var(--border); }
+    .contact-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .contact-left .big-text { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(40px, 5vw, 64px); letter-spacing: -3px; line-height: 1.05; margin-bottom: 24px; }
+    .contact-left .big-text span { color: var(--accent); }
+    .contact-left p { color: var(--muted); font-size: 17px; line-height: 1.7; }
+
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--bg2);
+      border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-link:hover { border-color: var(--border2); background: var(--bg3); }
+    .contact-link-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .contact-link-label { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; margin-bottom: 2px; }
+    .contact-link-value { font-size: 15px; color: var(--text); font-weight: 500; }
+    .contact-link-arrow { margin-left: auto; color: var(--muted2); font-size: 18px; transition: transform 0.2s, color 0.2s; }
+    .contact-link:hover .contact-link-arrow { transform: translateX(4px); color: var(--accent); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-family: 'Jost', sans-serif; font-size: 11px; color: var(--muted2); letter-spacing: 0.06em; }
+    .footer-made { font-family: 'Jost', sans-serif; font-size: 11px; color: var(--muted2); letter-spacing: 0.06em; }
+    .footer-made span { color: var(--accent); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slide { 0% { left: -40px; } 100% { left: 100%; } }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* LABEL WEIGHT */
+    nav, .hero-eyebrow, .badge, .section-label, .exp-period, .project-num,
+    .project-link, .skill-group-label, .edu-year, .contact-link-label,
+    .footer-copy, .footer-made, .scroll-text, .nav-links a, .nav-cta,
+    .btn-primary, .btn-secondary, .stat-label, .tool-tag, .exp-tag, .edu-score {
+      font-weight: 500;
+    }
+
+    /* PROJECT POPUP / MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 8, 16, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-container {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 960px;
+      height: 90vh;
+      max-height: 900px;
+      overflow-y: auto;
+      padding: 32px 36px;
+      position: relative;
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s ease;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-backdrop.active .modal-container {
+      transform: translateY(0) scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+    .modal-close:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      transform: rotate(90deg);
+    }
+    .modal-pill {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.5vw, 30px);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      padding-right: 40px;
+    }
+
+    /* MODAL TABS */
+    .modal-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .tab-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+      border-color: var(--border2);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* TAB CONTENT PANELS */
+    .tab-content {
+      display: none;
+      flex: 1;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .modal-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .modal-stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 8px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .modal-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-bright);
+    }
+    .modal-stat-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .modal-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--text);
+      margin: 20px 0 10px;
+      font-weight: 600;
+    }
+    .modal-body p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .modal-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .modal-list li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      padding-left: 18px;
+      position: relative;
+    }
+    .modal-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* IFRAME EMBED STYLING */
+    .embed-wrapper {
+      width: 100%;
+      height: 520px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    .embed-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      #hero, .section-inner { padding-left: 24px; padding-right: 24px; }
+      .about-grid, .edu-grid, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 12px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      .modal-stats { grid-template-columns: 1fr 1fr; }
+      .modal-container { padding: 24px 18px; height: 95vh; }
+      .embed-wrapper { height: 400px; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Working Experience</a>
-        <a href="#contacts">Contacts</a>
-    </nav>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">MD<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:daffashidqi20@gmail.com" class="nav-cta">Hire me</a>
+  </nav>
 
-    <div class="container" id="home">
-        
-        <div class="hero-about-section">
-            <div class="about-grid">
-                <div class="profile-frame">
-                    <img src="foto jas resize 500kb.jpg" alt="Muhammad Daffa Shidqi">
-                </div>
-                <div class="about-text">
-                    <h1>Muhammad <span>Daffa Shidqi</span></h1>
-                    <h3>Quantitative Analyst | Supply Chain & Geospatial Insights</h3>
-                    <p>
-                        I am a detail-oriented Quantitative Analyst driven by an analytical curiosity and a strong sense of ownership over data integrity. 
-                        I bridge the gap between complex physical datasets and corporate operational metrics, transforming raw data into clear, actionable business strategies that optimize operations and support growth.
-                    </p>
-                    <p>
-                        Combining a strong <span class="highlight">Geoscience background from Universitas Indonesia</span> with a <span class="highlight">Full-Stack Data Analyst certification from RevoU</span>, I bring verified technical skills in extracting database anomalies, demand modeling, and risk optimization architectures.
-                    </p>
-                </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+
+    <p class="hero-eyebrow">Data Analyst &amp; Quantitative Analyst · Jakarta, Indonesia</p>
+    <h1 class="hero-name">
+      <span class="line1">Muhammad</span>
+      <span class="line2">Daffa Shidqi</span>
+    </h1>
+    <p class="hero-role">
+      Turning terrain data into<br>
+      <span class="highlight">decisions that hold up.</span>
+    </p>
+    <p class="hero-desc">
+      Quantitative analyst with a background in Geology. I build risk maps, clean and structure messy datasets,
+      and turn them into recommendations that reduce cost and risk — from drilling-site inventory to
+      national infrastructure routing.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge geo">BSc Geology · UI</span>
+      <span class="badge data">RevoU Data Analyst</span>
+      <span class="badge ml">Risk Mapping · KOMDIGI</span>
+      <span class="badge data">Pertamina Drilling Services</span>
+      <span class="badge">GPA 3.32</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label reveal">About</p>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-title" style="margin-bottom: 32px;">A different<br>kind of analyst.</h2>
+          <p>
+            My path into data started underground — literally. With a <strong>Geology degree from Universitas Indonesia</strong>,
+            I spent years tracing active faults and mass movements. That training sharpened one skill above all:
+            finding where risk concentrates before it causes damage.
+          </p>
+          <p>
+            Today I apply that same rigor to operational data. At <strong>Pertamina Drilling Services Indonesia</strong>,
+            I track inventory and forecast demand across drilling sites — cutting overstocking risk by 15%
+            and material carrying costs by 10%.
+          </p>
+          <p>
+            My landslide risk-mapping research earlier led <strong>Kementerian Komunikasi dan Digital (KOMDIGI)</strong> to
+            reroute sections of the Palapa Ring fiber-optic network away from hazard zones, and I've since added
+            SQL, Python, and dashboarding through RevoU's Full-Stack Data Analyst program.
+          </p>
+        </div>
+        <div class="about-stats reveal" style="transition-delay: 0.15s">
+          <div class="stat-box">
+            <div class="stat-num">3.32</div>
+            <div class="stat-label">GPA · Univ. Indonesia</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">15%</div>
+            <div class="stat-label">Overstock Risk Cut</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">10%</div>
+            <div class="stat-label">Material Cost Cut</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">1+</div>
+            <div class="stat-label">Years in Analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label reveal">Experience</p>
+      <h2 class="section-title reveal">Where I've<br>worked.</h2>
+      <div class="exp-list">
+
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <div class="exp-period">Jul 2024 — Sep 2025</div>
+            <div class="exp-company">Pertamina Drilling<br>Services Indonesia</div>
+          </div>
+          <div>
+            <div class="exp-title">Material Management (Supply Chain)</div>
+            <div class="exp-desc">
+              Tracked stock levels and forecasted demand using SAP and Excel, cutting overstocking risk by 15%
+              while balancing warehouse capacity. Streamlined material lifecycles and disposal tracking,
+              reducing carrying costs by 10%. Worked with field engineers and procurement to keep SAP records
+              aligned with actual site stock.
             </div>
+            <div class="exp-tags">
+              <span class="exp-tag">SAP</span>
+              <span class="exp-tag">Excel</span>
+              <span class="exp-tag">Demand Forecasting</span>
+              <span class="exp-tag">Inventory Control</span>
+            </div>
+          </div>
         </div>
 
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="item-title">Bachelor of Geology</div>
-                    <div class="item-meta">
-                        <span>Universitas Indonesia</span>
-                        <span class="date">GPA: 3.32 / 4.00</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="item-title">Certified Full-Stack Data Analyst</div>
-                    <div class="item-meta">
-                        <span>RevoU Bootcamp (Project-Based)</span>
-                        <span class="date">Feb 2026</span>
-                    </div>
-                </div>
+        <div class="exp-item reveal" style="transition-delay:0.1s">
+          <div class="exp-meta">
+            <div class="exp-period">Jul 2023 — Dec 2023</div>
+            <div class="exp-company">Lembaga Sains Terapan<br>FMIPA, Universitas Indonesia</div>
+          </div>
+          <div>
+            <div class="exp-title">Geoscience Expert Assistant</div>
+            <div class="exp-desc">
+              Researched active faults and mass movement to trace the causes of landslides disrupting the
+              Palapa Ring fiber-optic cable. Built high-precision risk maps in ArcGIS and SNAP — geological
+              formations, peak ground acceleration, seamounts — and delivered routing recommendations that
+              KOMDIGI used to reshape cable paths away from hazard zones.
             </div>
-        </section>
+            <div class="exp-tags">
+              <span class="exp-tag">ArcGIS</span>
+              <span class="exp-tag">SNAP</span>
+              <span class="exp-tag">Spatial Analysis</span>
+              <span class="exp-tag">Risk Mapping</span>
+            </div>
+          </div>
+        </div>
 
-        <section id="experience">
-            <h2 class="section-title">Working Experience</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="item-title">Material Management (Supply Chain Management)</div>
-                    <div class="item-meta">
-                        <span>Pertamina Drilling Services Indonesia</span>
-                        <span class="date">Oct 2025 - Present</span>
-                    </div>
-                    <ul class="job-details">
-                        <li>Tracked stock levels and forecasted demand using SAP and Excel, cutting overstock risks by 15% and balancing warehouse capacity.</li>
-                        <li>Streamlined material lifecycles and disposal tracking, reducing material carrying costs by 10% and keeping drilling site operations running smoothly.</li>
-                        <li>Collaborated with field engineers and procurement teams to verify inventory
+        <div class="exp-item reveal" style="transition-delay:0.2s">
+          <div class="exp-meta">
+            <div class="exp-period">Dec 2019 — Dec 2021</div>
+            <div class="exp-company">Himpunan Mahasiswa Geologi<br>"Kaldera", Universitas Indonesia</div>
+          </div>
+          <div>
+            <div class="exp-title">Head of External Division</div>
+            <div class="exp-desc">
+              Led the External Division's work program after a year as staff, coordinating outreach and
+              running social-impact programs and benchmarking work with partner institutions.
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Leadership</span>
+              <span class="exp-tag">Program Management</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label reveal">Projects</p>
+      <h2 class="section-title reveal">Things I've<br>built.</h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-num">01 — Risk Analysis</div>
+          <div class="project-title">Palapa Ring Landslide Risk Mapping</div>
+          <div class="project-desc">
+            Combined geological formation, peak ground acceleration, and seamount data into high-precision
+            risk maps flagging landslide-prone zones along the Palapa Ring corridor. Routing recommendations
+            were adopted by KOMDIGI to reshape cable paths and prevent future disruptions.
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">ArcGIS</span>
+            <span class="tool-tag">SNAP</span>
+            <span class="tool-tag">Spatial Analysis</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" style="transition-delay:0.1s">
+          <div class="project-num">02 — Operations</div>
+          <div class="project-title">Drilling Site Inventory &amp; Demand Forecasting</div>
+          <div class="project-desc">
+            Tracked stock levels and forecasted material demand across drilling sites in SAP and Excel,
+            cutting overstocking risk by 15% and material carrying costs by 10% through tighter inventory control.
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">SAP</span>
+            <span class="tool-tag">Excel</span>
+            <span class="tool-tag">Forecasting</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" style="transition-delay:0.2s">
+          <div class="project-num">03 — Data Analysis</div>
+          <div class="project-title">Full-Stack Data Analyst Capstone</div>
+          <div class="project-desc">
+            Extracted, cleaned, and modeled business data using CTEs and window functions, then built
+            interactive Tableau and Power BI dashboards to surface KPIs for stakeholders.
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Tableau</span>
+            <span class="tool-tag">Power BI</span>
+          </div>
+        </div>
+
+        <!-- Project 04: Telkom Virtual Internship -->
+        <div class="project-card reveal" style="transition-delay:0.3s; cursor: pointer;" onclick="openProjectModal()">
+          <div class="project-num">04 — Telecommunication &amp; Operations</div>
+          <div class="project-title">Residential Broadband Retention Strategy &amp; Network Operations</div>
+          <div class="project-desc">
+            Analyzed 20,000 subscribers and Rp5.21B MRR across DKI Jakarta to diagnose churn drivers. Isolated a 12.36% churn rate on monthly contracts, recurring network instability, and a 4.7-day SLA bottleneck in high-ticket districts.
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Tableau Public</span>
+            <span class="tool-tag">EDA</span>
+            <span class="tool-tag">Root Cause Analysis</span>
+          </div>
+          <div class="project-link">
+            Open Interactive Project Modal <span>→</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label reveal">Skills</p>
+      <h2 class="section-title reveal">Tools of<br>the trade.</h2>
+      <div class="skills-grid reveal">
+
+        <div class="skill-group">
+          <div class="skill-group-label">Query &amp; Analysis</div>
+          <div class="skill-pills">
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">CTEs &amp; Window Functions</span>
+            <span class="skill-pill">Joins &amp; Filtering</span>
+            <span class="skill-pill">EDA</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Visualization</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Tableau</span>
+            <span class="skill-pill">Power BI</span>
+            <span class="skill-pill">Advanced Excel</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">GIS &amp; Spatial</div>
+          <div class="skill-pills">
+            <span class="skill-pill">ArcGIS</span>
+            <span class="skill-pill">SNAP</span>
+            <span class="skill-pill">Risk &amp; Hazard Mapping</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Enterprise Systems</div>
+          <div class="skill-pills">
+            <span class="skill-pill">SAP</span>
+            <span class="skill-pill">Inventory Control</span>
+            <span class="skill-pill">Data Modelling</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Languages &amp; Design</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Canva</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Core Strengths</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Risk Analysis</span>
+            <span class="skill-pill">Teamwork</span>
+            <span class="skill-pill">Data Integrity</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-inner">
+      <p class="section-label reveal">Education &amp; Certifications</p>
+      <h2 class="section-title reveal">Background &amp;<br>credentials.</h2>
+      <div class="edu-grid">
+        <div class="reveal">
+          <div class="edu-col-title">Education</div>
+          <div class="edu-item">
+            <div class="edu-year">Jan 2018 — Dec 2022</div>
+            <div class="edu-school">Universitas Indonesia</div>
+            <div class="edu-degree">Bachelor of Geology</div>
+            <span class="edu-score">GPA 3.32 / 4.00</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">Oct 2025 — Feb 2026</div>
+            <div class="edu-school">RevoU</div>
+            <div class="edu-degree">Certified Full-Stack Data Analyst, Project-Based Bootcamp</div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.15s">
+          <div class="edu-col-title">Certifications</div>
+          <div class="cert-item">
+            <div class="edu-year">Feb 2026 · RevoU</div>
+            <div class="edu-school">Certified Full-Stack Data Analyst</div>
+            <div class="edu-degree">Data extraction, cleaning, and dashboarding for real business problems.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <div class="big-text">Let's dig<br><span>into it.</span></div>
+        <p>Open to data analyst and quantitative analysis roles — especially ones where risk, operations, or spatial thinking are part of the story.</p>
+      </div>
+      <div class="contact-links reveal" style="transition-delay:0.15s">
+        <a href="mailto:daffashidqi20@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">daffashidqi20@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/daffa-shidqi" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/daffa-shidqi</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="tel:+6281281330303" class="contact-link">
+          <div class="contact-link-icon">☎</div>
+          <div>
+            <div class="contact-link-label">Phone</div>
+            <div class="contact-link-value">+62 812-8133-0303</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2026 Muhammad Daffa Shidqi</span>
+    <span class="footer-made">Built with <span>HTML &amp; CSS</span> — no frameworks.</span>
+  </footer>
+
+  <!-- POP-UP MODAL MULTI-TAB (INSIGHTS / TABLEAU / DECK) -->
+  <div class="modal-backdrop" id="projectModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
+      
+      <span class="modal-pill">Telkom Indonesia × RevoU Virtual Internship</span>
+      <h3 class="modal-title">Residential Broadband Retention Strategy &amp; Network Operations</h3>
+
+      <!-- TAB BUTTONS -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" onclick="switchModalTab(event, 'insights')">Executive Summary</button>
+        <button class="tab-btn" onclick="switchModalTab(event, 'tableau')">Tableau Dashboard</button>
+        <button class="tab-btn" onclick="switchModalTab(event, 'deck')">Pitch Deck Slides</button>
+      </div>
+      
+      <!-- TAB 1: INSIGHTS & SUMMARY -->
+      <div id="tab-insights" class="tab-content active">
+        <div class="modal-stats">
+          <div class="modal-stat-card">
+            <div class="modal-stat-val">10.00%</div>
+            <div class="modal-stat-label">Baseline Churn</div>
+          </div>
+          <div class="modal-stat-card">
+            <div class="modal-stat-val">Rp5.21B</div>
+            <div class="modal-stat-label">Monthly Portfolio MRR</div>
+          </div>
+          <div class="modal-stat-card">
+            <div class="modal-stat-val">20,365</div>
+            <div class="modal-stat-label">Total CX Complaints</div>
+          </div>
+          <div class="modal-stat-card">
+            <div class="modal-stat-val">4.1 – 4.7d</div>
+            <div class="modal-stat-label">Avg. Resolution SLA</div>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <h4 class="modal-section-title">Executive Summary &amp; Problem Statement</h4>
+          <p>
+            Telkom Indonesia manages fixed-broadband residential subscribers across DKI Jakarta. The portfolio faced a 10.00% churn rate, risking over Rp500M in vulnerable monthly recurring revenue. Using subscriber telemetry, contract distribution, and CX ticketing data, an intelligence framework was built to uncover churn drivers and field bottlenecks.
+          </p>
+
+          <h4 class="modal-section-title">Key Analytical Insights</h4>
+          <ul class="modal-list">
+            <li><strong>Contract Structure Risk:</strong> Subscribers on short-term monthly contracts churn at <strong>12.36%</strong> compared to just <strong>3.07%</strong> on 12-month commitments.</li>
+            <li><strong>Root Cause of Cancellations:</strong> Network quality was identified as the #1 reason for churn (~869 users lost), surpassing price sensitivity and competitor competition.</li>
+            <li><strong>Operational Hotspots:</strong> Over 4,200 complaints were concentrated in <strong>Cakung (2,138)</strong> and <strong>Ciracas (2,074)</strong>, where repair times averaged between 4.11 and 4.71 days.</li>
+          </ul>
+
+          <h4 class="modal-section-title">3-Pillar Strategic Roadmap</h4>
+          <ul class="modal-list">
+            <li><strong>Commercial:</strong> Migrate short-term subscribers to 6M/12M contracts via targeted speed upgrade incentives, cutting monthly churn down to 5%.</li>
+            <li><strong>Technical Quality:</strong> Repair damaged physical cables and upgrade failing nodes to reduce recurring intermittent disconnects by 25%.</li>
+            <li><strong>Field Operations:</strong> Reallocate technician dispatch teams directly to Cakung and Ciracas to bring resolution times down to under 3.0 days.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TAB 2: TABLEAU EMBED -->
+      <div id="tab-tableau" class="tab-content">
+        <div class="embed-wrapper">
+          <iframe 
+            src="https://public.tableau.com/views/VIRTUALINTERNSHIP_Dashboard1_MuhammadDaffaShidqi/Dashboard?:embed=yes&:showVizHome=no&:toolbar=yes" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- TAB 3: PITCH DECK EMBED -->
+      <div id="tab-deck" class="tab-content">
+        <div class="embed-wrapper">
+          <iframe 
+            src="https://docs.google.com/presentation/d/e/2PACX-1vQFRcdkSbtqirHjDNCYicQvVQYEu1kgp1ayRL5d_SwM6GQyOQi0WAXlpEMu5N-lmOphlpCIPkdlIDkd/pubembed?start=false&loop=false&delayms=3000" 
+            allowfullscreen="true" 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Scroll reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Modal Controls
+    function openProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'projectModal') {
+        closeProjectModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProjectModal();
+    });
+
+    // Tab Switcher Logic
+    function switchModalTab(evt, tabName) {
+      document.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach((content) => content.classList.remove('active'));
+
+      evt.currentTarget.classList.add('active');
+      document.getElementById('tab-' + tabName).classList.add('active');
+    }
+  </script>
+</body>
 </html>
